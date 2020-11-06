@@ -6,6 +6,34 @@ class encuesta extends modeloCredencialesBD {
         parent:: __construct();
     }
 
+    public function get_encuesta_binaria() {
+        $instruccion = "SELECT * FROM binarias";
+        $consulta = $this->__db->query($instruccion);
+        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+
+        if(!$resultado) {
+            echo "Fallo al consultar la tabla 'binarias'";
+        } else {
+            return $resultado;
+            $resultado->close();
+            $this->__db->close();
+        }
+    }
+
+    public function get_encuesta_multiple() {
+        $instruccion = "SELECT * FROM multiples";
+        $consulta = $this->__db->query($instruccion);
+        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+
+        if(!$resultado) {
+            echo "Fallo al consultar la tabla 'multiples'";
+        } else {
+            return $resultado;
+            $resultado->close();
+            $this->__db->close();
+        }
+    }
+
     public function insertar_encuesta_binaria($form) {
         $message = "Pregunta binaria insertada con éxito.";
         $instruccion = "INSERT INTO binarias (pregunta) VALUES ('".$form."')";

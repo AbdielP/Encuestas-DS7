@@ -80,8 +80,51 @@
                         <h3>Cuestionario</h3>
                     </div>
                 </div>
+                <?php
+                    require_once("class/encuesta.php");
+                    $obj_binarias = new encuesta();
+                    $encuestas_binarias = $obj_binarias->get_encuesta_binaria();
+                    foreach ($encuestas_binarias as $encuesta_binaria) {
+                        echo "<div class='row mb-4'>";
+                        echo    "<div class='col-md-12 preguntas p-3'>";
+                        echo        "<h5>".$encuesta_binaria['pregunta']."</h5>";
+                        echo        "<div class='form-check form-check-inline'>";
+                        echo            "<input class='form-check-input' type='radio' name='tipo' id='inlineRadio1' value='1' required>";
+                        echo            "<label class='form-check-label' for='inlineRadio1'><i class='fas fa-list'></i> Si</label>";
+                        echo        "</div>";
+                        echo        "<div class='form-check form-check-inline'>";
+                        echo            "<input class='form-check-input' type='radio' name='tipo' id='inlineRadio2' value='0' required>";
+                        echo            "<label class='form-check-label' for='inlineRadio2'><i class='fas fa-tasks'></i> No</label>";
+                        echo        "</div>";
+                        echo    "</div>";
+                        echo "</div>";
+                    }
+
+                    $encuestas_multiples = $obj_binarias->get_encuesta_multiple();
+                    foreach ($encuestas_multiples as $encuesta_multiple) {
+                        if ($encuesta_multiple["tipo"] == 0) {
+                            echo "<div class='row mb-4'>";
+                            echo    "<div class='col-md-12 preguntas p-3'>";
+                            echo        "<h5>".$encuesta_multiple['pregunta']."</h5>";
+                            echo         "<div class='form-check'>";
+                            echo            "<input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='option1'>";
+                            echo            "<label class='form-check-label' for='exampleRadios1'>";
+                            echo                $encuesta_multiple['op1'];
+                            echo            "</label>";
+                            echo       "</div>";
+                            echo       "<div class='form-check'>";
+                            echo            "<input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios2' value='option2'>";
+                            echo            "<label class='form-check-label' for='exampleRadios2'>";
+                            echo                $encuesta_multiple['op2'];
+                            echo            "</label>";
+                            echo        "</div>";
+                            echo    "</div>";
+                            echo "</div>";
+                        }
+                    }
+                ?>
                 <!-- PREGUNTA BINARIA -->
-                <div class="row mb-4">
+                <!-- <div class="row mb-4">
                     <div class="col-md-12 preguntas p-3">
                         <h5>Pregunta #1</h5>
                         <div class="form-check form-check-inline">
@@ -93,9 +136,10 @@
                             <label class="form-check-label" for="inlineRadio2"><i class="fas fa-tasks"></i> No</label>
                         </div>
                     </div>
-                </div>
+                </div> -->
+
                 <!-- PREGUNTA SIMPLE -->
-                <div class="row mb-4">
+                <!-- <div class="row mb-4">
                     <div class="col-md-12 preguntas p-3">
                         <h5>Pregunta #2</h5>
                         <div class="form-check">
@@ -111,7 +155,8 @@
                             </label>
                         </div>
                     </div>
-                </div>
+                </div> -->
+
                 <!-- PREGUNTA MULTIPLE  -->
                  <div class="row mb-4">
                     <div class="col-md-12 preguntas p-3">
