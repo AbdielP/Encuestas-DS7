@@ -106,18 +106,78 @@
                             echo "<div class='row mb-4'>";
                             echo    "<div class='col-md-12 preguntas p-3'>";
                             echo        "<h5>".$encuesta_multiple['pregunta']."</h5>";
-                            echo         "<div class='form-check'>";
-                            echo            "<input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='option1'>";
-                            echo            "<label class='form-check-label' for='exampleRadios1'>";
-                            echo                $encuesta_multiple['op1'];
-                            echo            "</label>";
-                            echo       "</div>";
-                            echo       "<div class='form-check'>";
-                            echo            "<input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios2' value='option2'>";
-                            echo            "<label class='form-check-label' for='exampleRadios2'>";
-                            echo                $encuesta_multiple['op2'];
-                            echo            "</label>";
-                            echo        "</div>";
+                            if( $encuesta_multiple['op1'] != "") {
+                                echo         "<div class='form-check'>";
+                                echo            "<input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='option1'>";
+                                echo            "<label class='form-check-label' for='exampleRadios1'>";
+                                echo                $encuesta_multiple['op1'];
+                                echo            "</label>";
+                                echo       "</div>";
+                            }
+                            if( $encuesta_multiple['op2'] != "") {
+                                echo       "<div class='form-check'>";
+                                echo            "<input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios2' value='option2'>";
+                                echo            "<label class='form-check-label' for='exampleRadios2'>";
+                                echo                $encuesta_multiple['op2'];
+                                echo            "</label>";
+                                echo        "</div>";
+                            }
+                            if( $encuesta_multiple['op3'] != "") {
+                                echo       "<div class='form-check'>";
+                                echo            "<input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios3' value='option3'>";
+                                echo            "<label class='form-check-label' for='exampleRadios3'>";
+                                echo                $encuesta_multiple['op3'];
+                                echo            "</label>";
+                                echo        "</div>";
+                            }
+                            if( $encuesta_multiple['op4'] != "") {
+                                echo       "<div class='form-check'>";
+                                echo            "<input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios4' value='option4'>";
+                                echo            "<label class='form-check-label' for='exampleRadios4'>";
+                                echo                $encuesta_multiple['op4'];
+                                echo            "</label>";
+                                echo        "</div>";
+                            }
+                            echo    "</div>";
+                            echo "</div>";
+                        }
+
+                        if ($encuesta_multiple["tipo"] == 1) {
+                            echo "<div class='row mb-4'>";
+                            echo    "<div class='col-md-12 preguntas p-3'>";
+                            echo        "<h5>".$encuesta_multiple['pregunta']."</h5>";
+                            if( $encuesta_multiple['op1'] != "") {
+                                echo         "<div class='form-check'>";
+                                echo            "<input class='form-check-input' type='checkbox' name='examplecheckboxs' id='examplecheckboxs1' value='option1'>";
+                                echo            "<label class='form-check-label' for='examplecheckboxs1'>";
+                                echo                $encuesta_multiple['op1'];
+                                echo            "</label>";
+                                echo       "</div>";
+                            }
+                            if( $encuesta_multiple['op2'] != "") {
+                                echo       "<div class='form-check'>";
+                                echo            "<input class='form-check-input' type='checkbox' name='examplecheckboxs' id='examplecheckboxs2' value='option2'>";
+                                echo            "<label class='form-check-label' for='examplecheckboxs2'>";
+                                echo                $encuesta_multiple['op2'];
+                                echo            "</label>";
+                                echo        "</div>";
+                            }
+                            if( $encuesta_multiple['op3'] != "") {
+                                echo       "<div class='form-check'>";
+                                echo            "<input class='form-check-input' type='checkbox' name='examplecheckboxs' id='examplecheckboxs3' value='option3'>";
+                                echo            "<label class='form-check-label' for='examplecheckboxs3'>";
+                                echo                $encuesta_multiple['op3'];
+                                echo            "</label>";
+                                echo        "</div>";
+                            }
+                            if( $encuesta_multiple['op4'] != "") {
+                                echo       "<div class='form-check'>";
+                                echo            "<input class='form-check-input' type='checkbox' name='examplecheckboxs' id='examplecheckboxs4' value='option4'>";
+                                echo            "<label class='form-check-label' for='examplecheckboxs4'>";
+                                echo                $encuesta_multiple['op4'];
+                                echo            "</label>";
+                                echo        "</div>";
+                            }
                             echo    "</div>";
                             echo "</div>";
                         }
@@ -158,7 +218,7 @@
                 </div> -->
 
                 <!-- PREGUNTA MULTIPLE  -->
-                 <div class="row mb-4">
+                 <!-- <div class="row mb-4">
                     <div class="col-md-12 preguntas p-3">
                         <h5>Pregunta #3</h5>
                         <div class="form-check">
@@ -174,7 +234,7 @@
                             </label>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <hr class="mb-4">
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar encuesta</button>
             </form>
