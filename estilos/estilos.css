@@ -1,15 +1,15 @@
 html,
 body {
   height: 100%;
-  background-color: #424242;
-  color: #fff;
+  background-color:#E6E6E6;
+  color: #424242;
   font-size: .9rem;
 }
 
 .container{
     border-radius: 5px;
-    background-color: #585858;
-}
+    background-color:#F2F2F2;
+  }
 
 hr {
     border-color: #2E9AFE
