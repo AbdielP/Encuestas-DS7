@@ -7,7 +7,7 @@ class encuesta extends modeloCredencialesBD {
     }
 
     public function get_encuesta_binaria() {
-        $instruccion = "SELECT * FROM binarias";
+        $instruccion = "SELECT * FROM binarias ORDER BY RAND() LIMIT 4";
         $consulta = $this->__db->query($instruccion);
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
@@ -21,7 +21,7 @@ class encuesta extends modeloCredencialesBD {
     }
 
     public function get_encuesta_multiple() {
-        $instruccion = "SELECT * FROM multiples";
+        $instruccion = "SELECT * FROM multiples ORDER BY RAND() LIMIT 6";
         $consulta = $this->__db->query($instruccion);
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 

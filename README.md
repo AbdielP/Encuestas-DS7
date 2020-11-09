@@ -10,7 +10,8 @@ Proyecto 1, desarrollo de software 7
   - Conteo de votos por edad.
   - Conteo de votos por salario.
   - Conteo de votos por provincia (PA).
-- **Filtro de preguntas y randomización pendientes**
+- Preguntas aleatorias desde la base datos. (entre binarias, simples y multilpes).
+- Desarrollado con Bootstrap. Estilos CSS personalizados.
 
 Capturas de pantalla:
 -------------

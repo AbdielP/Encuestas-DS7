@@ -41,7 +41,6 @@
                     </li>
                 </ul>
                 <div class="py-5">
-                    <!-- <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
                     <i class="fas fa-book d-block mx-auto mb-4 text-center icon-logo"></i>
                     <h2 class="text-center">Reportes de Encuestas</h2>
                     <p class="lead text-justify">A continuación se listan los reportes de las encuestas, basadas en los datos recopilados por los participantes.</p>
@@ -62,7 +61,7 @@
             </div>
 
             <div class="col-md-8 order-md-1">
-                <!-- <form class="needs-validation" novalidate> -->
+                <form class="needs-validation" novalidate>
                 <!-- REPORTE POR SEXO  -->
                 <h4 class="mb-3"><i class="fas fa-male"></i> <i class="fas fa-female"></i> Encuestas por sexo</h4>
                     <div class="row">
@@ -99,8 +98,6 @@
                         $obj_count_edad = new encuesta();
                         $count_edad = $obj_count_edad->count_edad();
                         foreach ($count_edad as $key => $value) {
-                            // echo $key;
-                            // echo $value;
                             foreach ($value as $k => $v) {
                                 echo "<div class='col-md-6 mb-3'>";
                                 echo    "<div>";
@@ -127,9 +124,6 @@
                                 if ($k == '51+')
                                     echo "<span class='badge badge-info badge-pill font-size-badge'>".$v."</span>";
                                 echo "</div>";
-                                // if( $k == '-18'){
-                                //     echo $v;
-                                // }
                             }
                         }
                     ?>
@@ -234,7 +228,7 @@
                         }
                     ?>
                     </div>
-                <!-- </form> -->
+                </form>
             </div>
 
 
