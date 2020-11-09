@@ -1,0 +1,18 @@
+.icon-logo {
+    font-size: 4rem;
+    color:#86B404;
+}
+
+.font-size-max{
+    font-size: 1.5rem;
+    /* color: #58FA58; */
+}
+
+.font-size-badge {
+    font-size: .8rem;
+}
+
+.total-votos {
+    color: #FF4000;
+    font-size: 1.3rem;
+}
