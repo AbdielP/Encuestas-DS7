@@ -53,5 +53,86 @@ class encuesta extends modeloCredencialesBD {
         $this->__db->close();
         # multiples = 1, simple =0;
     }
+
+    // INSERTAR REGISTROS (Datos de la encuesta)
+    public function insertar_registros($sexo, $edad, $salario, $provincia) {
+        $message = "Datos de la encuesta registrados con éxito.";
+        $instruccion = "INSERT INTO registros (sexo, edad, salario, provincia) VALUES ('".$sexo."','".$edad."',
+            '".$salario."','".$provincia."')";
+        $query = $this->__db->query($instruccion);
+        return $message;
+        $query->close();
+        $this->__db->close();
+    }
+
+    // COUNT TOTAL VOTOS
+    public function count_total_votos() {
+        $instruccion = "CALL count_total_votos()";
+        $consulta=$this->__db->query($instruccion);
+        $resultado=$consulta->fetch_all(MYSQLI_ASSOC);
+        if(!$resultado) {
+            echo "Fallo al consultar total de encuestas";
+        } else {
+            return $resultado;
+            $resultado->close();
+            $this->__db->close();
+        }
+    }
+
+    // COUNT SEX
+    public function count_sex() {
+        $instruccion = "CALL count_sex()";
+        $consulta=$this->__db->query($instruccion);
+        $resultado=$consulta->fetch_all(MYSQLI_ASSOC);
+        if(!$resultado) {
+            echo "Fallo al consultar encuestas por sexo";
+        } else {
+            return $resultado;
+            $resultado->close();
+            $this->__db->close();
+        }
+    }
+
+    // COUNT EDAD
+    public function count_edad() {
+        $instruccion = "CALL count_edad()";
+        $consulta=$this->__db->query($instruccion);
+        $resultado=$consulta->fetch_all(MYSQLI_ASSOC);
+        if(!$resultado) {
+            echo "Fallo al consultar encuestas por edad";
+        } else {
+            return $resultado;
+            $resultado->close();
+            $this->__db->close();
+        }
+    }
+
+    // COUNT SALARIO
+    public function count_salario() {
+        $instruccion = "CALL count_salario()";
+        $consulta=$this->__db->query($instruccion);
+        $resultado=$consulta->fetch_all(MYSQLI_ASSOC);
+        if(!$resultado) {
+            echo "Fallo al consultar encuestas por salario";
+        } else {
+            return $resultado;
+            $resultado->close();
+            $this->__db->close();
+        }
+    }
+
+    // COUNT PROVINCIA
+    public function count_provincia() {
+        $instruccion = "CALL count_provincia()";
+        $consulta=$this->__db->query($instruccion);
+        $resultado=$consulta->fetch_all(MYSQLI_ASSOC);
+        if(!$resultado) {
+            echo "Fallo al consultar encuestas por provincia";
+        } else {
+            return $resultado;
+            $resultado->close();
+            $this->__db->close();
+        }
+    }
 }
 ?>

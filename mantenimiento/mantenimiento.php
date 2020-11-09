@@ -86,7 +86,10 @@
         </div>
     
         <br><hr>
-        <a href="../index.php"><i class="far fa-arrow-alt-circle-left"></i> Volver al sitio de encuesta</a>
+        <div class="d-flex justify-content-between">
+            <a href="../index.php"><i class="far fa-arrow-alt-circle-left"></i> Volver al sitio de encuesta</a>
+            <a href="../reportes/reportes.php">Ir al sitio de reportes <i class="far fa-arrow-alt-circle-right"></i> </a>   
+        </div>
     </div>
 
     <?php

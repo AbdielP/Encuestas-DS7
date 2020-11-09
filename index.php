@@ -20,12 +20,12 @@
         </div>
         
         <div class="col-md-12 order-md-1">
-            <form class="needs-validation">
+            <form class="needs-validation" method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="state">Sexo <i class="fas fa-male"></i> <i class="fas fa-female"></i></label>
-                        <select class="custom-select d-block w-100" id="state" required>
+                        <select class="custom-select d-block w-100" id="state" name="sexo" required>
                             <option value="" disabled selected>Seleccione su sexo...</option>
                             <option>Másculino</option>
                             <option>Femenino</option>
@@ -34,7 +34,7 @@
 
                     <div class="col-md-6 mb-3">
                         <label for="state">Rango de edad <i class="far fa-calendar-alt"></i></label>
-                        <select class="custom-select d-block w-100" id="state" required>
+                        <select class="custom-select d-block w-100" id="state" name="edad" required>
                             <option value="" disabled selected>Seleccione rango de edad...</option>
                             <option>Menos de 18 años. (-18)</option>
                             <option>18 a 30 años.</option>
@@ -48,19 +48,19 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="state">Rango salarial <i class="far fa-money-bill-alt"></i></label>
-                        <select class="custom-select d-block w-100" id="state" required>
+                        <select class="custom-select d-block w-100" id="state" name="salario" required>
                             <option value="" disabled selected>Seleccione su nivel de pobreza...</option>
                             <option>Colaborador de CWP</option>
                             <option>Muy pobre</option>
                             <option>Pobre</option>
-                            <option>ahí sobrevivo..</option>
+                            <option>Ahí sobrevivo..</option>
                             <option>Subsidiado por el gobierno</option>
                         </select>
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <label for="state">Provincia (PA) <i class="fas fa-globe-americas"></i></label>
-                        <select class="custom-select d-block w-100" id="state" required>
+                        <select class="custom-select d-block w-100" id="state" name="provincia" required>
                             <option value="" disabled selected>Seleccione en que provincia reside.</option>
                             <option>Bocas Del Toro</option>
                             <option>Coclé</option>
@@ -190,6 +190,26 @@
                 <hr class="mb-4">
                 <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar encuesta <i class="far fa-paper-plane"></i></button>
             </form>
+            
+            <?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    if(isset($_REQUEST['sexo']) && isset($_REQUEST['edad']) && isset($_REQUEST['salario']) && isset($_REQUEST['provincia'])) {
+                        $sexo = $_POST['sexo'];
+                        $edad = $_POST['edad'];
+                        $salario = $_POST['salario'];
+                        $provincia = $_POST['provincia'];
+                        require_once("class/encuesta.php");
+                        $obj_insertar_registro = new encuesta();
+                        $resultado_insertar_registro = $obj_insertar_registro->insertar_registros($sexo, $edad, 
+                            $salario, $provincia);
+                        // echo $resultado_insertar_registro;
+                        echo "<div class='alert alert-success text-center mt-3' role='alert'>";
+                        echo    "$resultado_insertar_registro <i class='far fa-thumbs-up'></i>";
+                        echo "</div>";
+                    }
+                }
+            ?>
+
         </div>
     </div>
 
