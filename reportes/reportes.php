@@ -14,11 +14,11 @@
         <div class="row">
             <div class="col-md-4 order-md-2 mb-4">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
-                    <span class="text-muted"><i class="fas fa-flag"></i> Total de votos</span>
+                    <span class="text-muted"><i class="fas fa-flag"></i> Total de encuestas</span>
                     <?php
                         require_once("../class/encuesta.php");
                         $obj_count_total= new encuesta();
-                        $count_total= $obj_count_total->count_total_votos();
+                        $count_total= $obj_count_total->count_total_encuestas();
                         foreach ($count_total as $total) {
                             echo "<span class='badge badge-success badge-pill font-size-max'>".$total['total']."</span>";
                         }
@@ -28,14 +28,14 @@
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
                             <h6 class="my-0">Total</h6>
-                            <small class="text-muted">Total de votos realizados</small>
+                            <small class="text-muted">Total de encuestas realizadas</small>
                         </div>
                     <?php
                         require_once("../class/encuesta.php");
                         $obj_count_total= new encuesta();
-                        $count_total= $obj_count_total->count_total_votos();
+                        $count_total= $obj_count_total->count_total_encuestas();
                         foreach ($count_total as $total) {
-                            echo "<span class='total-votos'>".$total['total']." votos</span>";
+                            echo "<span class='total-votos'>".$total['total']." encuestas</span>";
                         }
                     ?>
                     </li>
@@ -72,7 +72,7 @@
                         foreach ($count_sex as $sex) {
                             echo "<div class='col-md-6 mb-3'>";
                             echo    "<div>";
-                            echo        "<h6 class='my-0'>Resultado por genero másculino <i class='fas fa-mars'></i></h6>";
+                            echo        "<h6 class='my-0'>Resultado por género másculino <i class='fas fa-mars'></i></h6>";
                             echo        "<small class='text-muted'>Total de votantes / participantes</small>";
                             echo    "</div>";
                             echo    "<span class='badge badge-info badge-pill font-size-badge'>".$sex['m']."</span>";
@@ -80,7 +80,7 @@
 
                             echo "<div class='col-md-6 mb-3'>";
                             echo    "<div>";
-                            echo        "<h6 class='my-0'>Resultado por genero femenino <i class='fas fa-venus'></i></h6>";
+                            echo        "<h6 class='my-0'>Resultado por género femenino <i class='fas fa-venus'></i></h6>";
                             echo        "<small class='text-muted'>Total de votantes / participantes</small>";
                             echo    "</div>";
                             echo    "<span class='badge badge-info badge-pill font-size-badge'>".$sex['f']."</span>";

@@ -65,9 +65,9 @@ class encuesta extends modeloCredencialesBD {
         $this->__db->close();
     }
 
-    // COUNT TOTAL VOTOS
-    public function count_total_votos() {
-        $instruccion = "CALL count_total_votos()";
+    // COUNT TOTAL ENCUESTAS
+    public function count_total_encuestas() {
+        $instruccion = "CALL count_total_encuestas()";
         $consulta=$this->__db->query($instruccion);
         $resultado=$consulta->fetch_all(MYSQLI_ASSOC);
         if(!$resultado) {

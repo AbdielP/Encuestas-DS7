@@ -85,22 +85,26 @@
                 <?php
                     require_once("class/encuesta.php");
                     $obj_binarias = new encuesta();
-                    // BINARIA 
+                    // BINARIA
+                    
+                    $id=1;
                     $encuestas_binarias = $obj_binarias->get_encuesta_binaria();
                     foreach ($encuestas_binarias as $encuesta_binaria) {
                         echo "<div class='row mb-4'>";
                         echo    "<div class='col-md-12 preguntas p-3'>";
                         echo        "<h5><i class='far fa-flag'></i> ".$encuesta_binaria['pregunta']."</h5>";
                         echo        "<div class='form-check form-check-inline'>";
-                        echo            "<input class='form-check-input' type='radio' name='tipo' id='inlineRadio1' value='1' required>";
+                        echo            "<input class='form-check-input' type='radio' name='tipo".$id."' id='inlineRadio1' value='1' required>";
                         echo            "<label class='form-check-label' for='inlineRadio1'>Si</label>";
                         echo        "</div>";
                         echo        "<div class='form-check form-check-inline'>";
-                        echo            "<input class='form-check-input' type='radio' name='tipo' id='inlineRadio2' value='0' required>";
+                        echo            "<input class='form-check-input' type='radio' name='tipo".$id."' id='inlineRadio2' value='0' required>";
                         echo            "<label class='form-check-label' for='inlineRadio2'>No</label>";
                         echo        "</div>";
                         echo    "</div>";
                         echo "</div>";
+
+                        $id++;
                     }
 
                     // ELECCIÓN SIMPLE
@@ -112,7 +116,7 @@
                             echo        "<h5><i class='far fa-flag'></i> ".$encuesta_multiple['pregunta']."</h5>";
                             if( $encuesta_multiple['op1'] != "") {
                                 echo         "<div class='form-check'>";
-                                echo            "<input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios1' value='option1'>";
+                                echo            "<input class='form-check-input' type='radio' name='exampleRadios".$id."' id='exampleRadios1' value='option1'>";
                                 echo            "<label class='form-check-label' for='exampleRadios1'>";
                                 echo                $encuesta_multiple['op1'];
                                 echo            "</label>";
@@ -120,7 +124,7 @@
                             }
                             if( $encuesta_multiple['op2'] != "") {
                                 echo       "<div class='form-check'>";
-                                echo            "<input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios2' value='option2'>";
+                                echo            "<input class='form-check-input' type='radio' name='exampleRadios".$id."' id='exampleRadios2' value='option2'>";
                                 echo            "<label class='form-check-label' for='exampleRadios2'>";
                                 echo                $encuesta_multiple['op2'];
                                 echo            "</label>";
@@ -128,7 +132,7 @@
                             }
                             if( $encuesta_multiple['op3'] != "") {
                                 echo       "<div class='form-check'>";
-                                echo            "<input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios3' value='option3'>";
+                                echo            "<input class='form-check-input' type='radio' name='exampleRadios".$id."' id='exampleRadios3' value='option3'>";
                                 echo            "<label class='form-check-label' for='exampleRadios3'>";
                                 echo                $encuesta_multiple['op3'];
                                 echo            "</label>";
@@ -136,7 +140,7 @@
                             }
                             if( $encuesta_multiple['op4'] != "") {
                                 echo       "<div class='form-check'>";
-                                echo            "<input class='form-check-input' type='radio' name='exampleRadios' id='exampleRadios4' value='option4'>";
+                                echo            "<input class='form-check-input' type='radio' name='exampleRadios".$id."' id='exampleRadios4' value='option4'>";
                                 echo            "<label class='form-check-label' for='exampleRadios4'>";
                                 echo                $encuesta_multiple['op4'];
                                 echo            "</label>";
@@ -144,6 +148,8 @@
                             }
                             echo    "</div>";
                             echo "</div>";
+
+                            $id++;
                         }
                         // ELECCIÓN MULTIPLE
                         if ($encuesta_multiple["tipo"] == 1) {
